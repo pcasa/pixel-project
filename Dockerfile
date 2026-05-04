@@ -1,0 +1,46 @@
+# --- Stage 1: build Vite dashboard ---
+FROM node:20-bookworm-slim AS frontend
+WORKDIR /app
+COPY hub/frontend/package.json hub/frontend/package-lock.json ./
+RUN npm ci
+COPY hub/frontend/ ./
+RUN npm run build
+
+# --- Stage 2: FastAPI hub + static UI ---
+# Match CI: openwakeword requires tflite-runtime on Linux, which has no cp312 wheels on PyPI.
+FROM python:3.11-slim-bookworm
+
+# OpenCV headless and common native deps for wheels
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender1 \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app/backend
+
+COPY hub/backend/requirements.txt .
+# uv resolves the same dependency graph as pip but much faster (avoids 10+ minute pip backtracking)
+RUN pip install --no-cache-dir --upgrade pip uv \
+    && uv pip install --system --no-cache -r requirements.txt
+
+COPY hub/backend/ .
+
+COPY --from=frontend /app/dist ./static
+
+ENV PYTHONUNBUFFERED=1
+ENV OMNIBOT_DATA_DIR=/data
+ENV OMNIBOT_STATIC_ROOT=/hub/backend/static
+ENV HOST=0.0.0.0
+ENV PORT=8000
+
+RUN mkdir -p /data
+
+EXPOSE 8000
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=5 \
+    CMD python -c 'import urllib.request; urllib.request.urlopen("http://127.0.0.1:8000/ping")'
+
+CMD ["python", "app.py"]

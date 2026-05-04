@@ -1,0 +1,33 @@
+# Narrow transitive deps so installs resolve quickly (pip backtracks hard on these otherwise)
+pyasn1>=0.6.1,<0.7
+pyasn1-modules>=0.4.1,<0.5
+regex>=2024.11.6
+referencing>=0.36.0
+rpds-py>=0.29.0
+numpy>=2.4.0,<3
+jsonschema>=4.23.0,<5
+propcache>=0.3.0
+
+requests
+python-dotenv
+websockets>=12.0,<14
+anthropic>=0.40.0
+# Pillow: Linux Docker/CI use 3.11 + Pillow 10.x. Python 3.13+ has different wheel sets — use Pillow 11+.
+Pillow>=10.3.0,<11.0.0; python_version < "3.13"
+Pillow>=11.0.0,<12.0.0; python_version >= "3.13"
+fastapi
+uvicorn[standard]
+google-genai>=1.50.0
+bleak
+python-multipart
+opencv-python-headless
+imageio
+imageio-ffmpeg
+# Face embeddings: ONNX Runtime + InsightFace (no TensorFlow; works on more Windows CPUs)
+onnxruntime>=1.16.0
+insightface>=0.7.3
+# Linux: transitive tflite-runtime (PyPI) supports Python 3.8–3.11 only; use 3.11 for Docker/CI on Linux. ONNX inference does not need it at runtime.
+openwakeword>=0.6.0
+# webrtcvad imports pkg_resources; setuptools>=81 no longer exposes it as top-level — pin for compatibility
+setuptools>=69,<81
+webrtcvad>=2.0.10

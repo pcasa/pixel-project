@@ -1,0 +1,83 @@
+# ─── Secrets & Environment ────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+hub/backend/hub_secrets.json
+hub/backend/hub_app_settings.json
+hub/backend/bot_settings.json
+hub/backend/known_bots.json
+
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# ─── Node / Frontend ──────────────────────────────────────────────────────────
+node_modules/
+dist/
+hub/frontend/dist/
+
+# ─── PlatformIO (ESP32 firmware build artifacts) ──────────────────────────────
+firmware/.pio/
+firmware/.pioenvs/
+
+# ─── ML Models (large binary files — downloaded at runtime) ───────────────────
+hub/backend/models/fastembed_cache/
+hub/backend/models/wake/*.tflite
+hub/backend/models/wake/*.onnx
+hub/backend/models/wake/*.bin
+# Keep the README and .gitkeep that document what belongs here
+!hub/backend/models/wake/.gitkeep
+!hub/backend/models/wake/README.md
+
+# ─── Runtime Data ─────────────────────────────────────────────────────────────
+# Face recognition profiles (generated at runtime, contain user photos)
+hub/backend/data/face_profiles/*
+!hub/backend/data/face_profiles/.gitkeep
+
+# ─── Persona Runtime Data ─────────────────────────────────────────────────────
+# Persona directories are created per-device at runtime and contain user data.
+# The templates in persona_defaults/ ARE tracked — they're the source of truth.
+hub/backend/persona/
+
+# Per-recipient configs contain names, roles — sensitive, managed separately
+personas/*/
+!personas/README.md
+
+# ─── Obsidian Vault ───────────────────────────────────────────────────────────
+# The vault lives in ~/pixel-vault/ (Docker volume) — not in the repo.
+# Each recipient's vault is personal data and must never be committed.
+pixel-vault/
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+# docker-compose.yml and Dockerfile ARE tracked (they're config, not secrets).
+# Only ignore override files with local secrets.
+docker-compose.override.yml
+
+# ─── omnibot (upstream reference) ─────────────────────────────────────────────
+# This is a nested git clone kept locally as a read-only reference.
+# It is NOT part of our repo. Clone it yourself:
+#   git clone https://github.com/nazirlouis/OmniBot omnibot
+omnibot/
+
+# ─── Claude Code (local project settings) ─────────────────────────────────────
+.claude/settings.local.json
+
+# ─── macOS ────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+*.swp
+
+# ─── VS Code (keep shared extensions config, ignore personal settings) ─────────
+.vscode/settings.json
+.vscode/launch.json
+!.vscode/extensions.json
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/

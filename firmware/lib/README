@@ -1,0 +1,1 @@
+Add **private PlatformIO libraries** here as subfolders (`lib/your_library_name/`). See [PlatformIO library dependency finder](https://docs.platformio.org/en/latest/librarymanager/ldf.html). For Pixel, see [`../README.md`](../README.md).

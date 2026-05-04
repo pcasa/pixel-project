@@ -1,0 +1,102 @@
+# Pixel
+
+**Pixel** is a desktop companion robot built on the **Seeed XIAO ESP32S3 Sense** and the **XIAO 1.28″ round display**. It streams microphone (and optional camera) data to the **OmniBot hub** over Wi‑Fi so **Gemini** can respond; the round screen shows eyes, status, and replies.
+
+Firmware is a **PlatformIO** project in this folder (`platformio.ini`, `src/main.cpp`).
+LINK TO CAD FILES - https://cad.onshape.com/documents/36ef3639f0adcbd215c2da2e/w/06b991eb4c1f6f28b2fd677f/e/884c5e41b396d185bfcf0efe?renderMode=0&uiState=69e847d2750fa350c28bad91
+---
+
+## Quick setup
+
+1. **Run the OmniBot hub** on a PC on the same LAN as Pixel ([main README](../../README.md): install → start, or Docker).
+2. **Set the hub address in firmware** — In `src/main.cpp`, set `backend_ip` to your PC’s **LAN IP** (not `127.0.0.1`) and `backend_port` to the hub port (`8000` for local dev; **8080** on the host if you use the default Docker mapping). **Rebuild and upload** after any change.
+3. **Open the project in PlatformIO**, build, and flash the board.
+4. **Provision Wi‑Fi** — On first boot (or with no saved Wi‑Fi), the display shows **BLE SETUP**. On the PC, open the dashboard → **Add New Bot**, scan Bluetooth, select **Pixel**, and send your SSID and password.
+
+When Wi‑Fi works and the hub is reachable, Pixel connects with a WebSocket; the dashboard **Intelligence Feed** shows the bot as connected.
+
+---
+
+## Using Pixel day to day
+
+### Voice (wake word on the hub)
+
+- With the **hub running** on your LAN and **wake word** enabled (default) in **Pixel bot** settings, Pixel **streams the microphone** to the hub. The hub runs **wake-word detection** and **end-of-speech** (VAD), then sends the clip to **Gemini**.
+- Say your wake phrase (train a **custom** `pixel.onnx` on the hub, or use the hub’s default test model—see hub logs), then your question. Pixel shows **thinking** when the hub starts processing, then the reply on the face.
+- **Voice does not work** if the hub is offline or wake word is turned off in settings (there is no on-device tap-to-record).
+
+**Vision:** With **Vision** on in the dashboard (and on the device), Pixel streams **JPEG frames** to the hub during idle wake listening; the hub keeps a short rolling buffer and builds the clip for **Gemini Live** and the **Intelligence Feed** when you finish a voice turn. Turn **Vision** off to save Wi‑Fi bandwidth. Presence face scan uses the camera separately and may occasionally contend with video streaming.
+
+**Persona, memory, and hub voice:** The hub does not rely on a single “system instructions” text field. Each bot has **markdown persona files** (SOUL, MEMORY, etc.) and optional **heartbeat** maintenance; you can edit them in **Pixel bot** settings or start a guided reset via **Hub settings → Give me a soul**. After voice turns, the PC can **read replies aloud** (**hub TTS**) if enabled. If **Hub settings** uses **browser** as the live voice source, wake audio comes from the PC mic instead of Pixel (see [main README](../../README.md)).
+
+### On-device settings (swipe down from idle)
+
+| Control | What it does |
+|--------|----------------|
+| **VIDEO: ON/OFF** | Reserved for hub/UI vision toggles (wake turns are audio-only in current firmware). |
+| **BT SETUP** | Disconnects from the hub, turns **Wi‑Fi off**, and advertises **BLE** so you can send a **new** SSID/password from the dashboard (**Add New Bot**). |
+| **CLR WIFI** | Erases saved SSID/password and **reboots**. Next boot uses BLE setup if nothing is stored. |
+
+**Swipe up** closes the settings screen.
+
+### Clock screen
+
+**Swipe left** from idle opens the **time** screen. **Swipe right** or **up** to leave. The hub can sync timezone from **Hub / application** settings when connected.
+
+### Gestures (short taps and swipes)
+
+| Gesture | When | Action |
+|---------|------|--------|
+| **Swipe left** | Idle | Open clock screen |
+| **Swipe right** | Clock | Close clock |
+| **Swipe down** | Idle | Open settings |
+| **Swipe up** | Settings or clock | Close / return to idle |
+
+---
+
+## Wi‑Fi: first connect and recovery
+
+1. Flash firmware with the correct `backend_ip` / `backend_port`.
+2. Boot with no saved credentials → **BLE SETUP**; device advertises as **Pixel**.
+3. On the PC: **Add New Bot** → choose Pixel → enter Wi‑Fi credentials.
+
+**If Wi‑Fi fails repeatedly:** the firmware retries associations (with a longer per-attempt boot connect window so AP association + DHCP can complete), then after several failed boots can fall back to **BLE SETUP** or clear stored Wi‑Fi so you can reprovision without re-flashing. See **BT SETUP** and **CLR WIFI** above for manual changes.
+
+**Change Wi‑Fi while Pixel already works:** **SETTINGS** → **BT SETUP**, then on the PC use **Add New Bot** to send the new network.
+
+**Hub was stopped:** Pixel reconnects periodically over Wi‑Fi; start the hub again and wait—you usually do **not** need to reboot the board.
+
+**You changed PC IP or port:** update `backend_ip` / `backend_port` in `src/main.cpp`, rebuild, and flash.
+
+**Firewall:** allow inbound TCP to the hub port from Pixel’s IP on the LAN.
+
+---
+
+## Hardware
+
+| Component | Part | Notes |
+|-----------|------|--------|
+| MCU | Seeed XIAO ESP32S3 Sense | PSRAM used for audio + camera |
+| Display | 1.28″ round TFT (GC9A01, 240×240) | SPI |
+| Touch | CST816S (I2C) | Gestures in firmware |
+| RTC | PCF8563 | Clock screen |
+| Microphone | Onboard PDM MEMS | I2S |
+| Camera | OV2640 (Sense) | DVP pins in `main.cpp` |
+
+**Build:** `platformio.ini` enables **OPI PSRAM** and related flags—do not remove them if you want audio and JPEG capture together.
+
+**Pins:** Display, touch, mic, and camera pins are defined in `src/main.cpp` (see **Camera Pins** and nearby tables).
+
+---
+
+## Libraries
+
+Declared in `platformio.ini` (e.g. `esp32-camera`, WebSockets, ArduinoJson, display stack, RTClib, JPEG decode). ESP32 BLE and Wi‑Fi come from the Arduino-ESP32 core.
+
+---
+
+## Related docs
+
+- **OmniBot hub + dashboard:** [`../../README.md`](../../README.md) (persona framework, Gemini Live, browser live voice, env vars)
+- **Default persona templates (repo):** [`../../app/backend/persona_defaults/README.md`](../../app/backend/persona_defaults/README.md)
+- **Custom wake word model:** [`../../app/backend/models/wake/README.md`](../../app/backend/models/wake/README.md)
