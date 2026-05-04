@@ -19,27 +19,42 @@ This is slower than dividing work. It's also how you actually learn.
 
 ---
 
-## Git Workflow
+## Git Workflow (Gitflow)
+
+We follow Gitflow. Two permanent branches:
+- **`main`** — stable, production-ready only. Never commit here directly.
+- **`develop`** — integration branch. All phase branches merge here first.
+
+```
+main
+ └── develop
+      ├── phase-2/captive-portal
+      ├── phase-3/onboarding
+      └── phase-4/local-audio
+```
 
 ```bash
-# One branch per phase — everyone works off the same branch
+# Always branch off develop
+git checkout develop
+git pull origin develop
 git checkout -b phase-2/captive-portal
-
-# Pull before you start to get everyone's latest
-git pull origin phase-2/captive-portal
 
 # Commit often with clear messages
 git add firmware/src/main.cpp
 git commit -m "replace startBLEProvisioning with startCaptivePortal skeleton"
 
-# Push so everyone can see progress
-git push origin phase-2/captive-portal
+# Push and keep in sync with develop
+git push -u origin phase-2/captive-portal
+
+# When the phase is done → open PR into develop
+# When develop is stable and the group agrees → PR develop into main
 ```
 
 **Rules:**
-- Never commit directly to `main`
-- One branch per phase — shared by all three
-- Merge to `main` only when the whole group agrees it's done
+- Never commit directly to `main` or `develop`
+- Feature/phase branches always cut from `develop`
+- PRs merge to `develop` — not `main`
+- `main` only moves forward when `develop` is stable and everyone agrees
 - `omnibot/` is read-only — never edit files there
 
 ---
