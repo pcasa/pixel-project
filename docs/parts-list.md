@@ -9,17 +9,17 @@ Prices approximate as of May 2026. Speaker and amp are not included in this phas
 
 | # | Component | Part | Qty | ~Price |
 |---|---|---|---|---|
-| 1 | MCU + camera + mic | Seeed Studio XIAO ESP32-S3 Sense **(pre-soldered headers)** | 1 | $15 |
+| 1 | MCU + camera + mic | Seeed Studio XIAO ESP32-S3 Sense — **Pre-Soldered version** | 1 | $16 |
 | 2 | Display | Seeed Studio Round Display for XIAO (1.28" GC9A01, touch, RTC) | 1 | $12 |
 | 3 | Power | USB-C to USB-A cable, 1m | 1 | $4 |
 | 4 | Power | 5V 1A USB-A wall adapter | 1 | $5 |
 | 5 | Enclosure | 3D printed — PETG filament (~30g/unit) | 1 | ~$2 |
 | 6 | Misc | M2×6 screws (4/unit), rubber feet | 1 | ~$1 |
 
-**Per-unit total: ~$39**
-**10-unit hardware total: ~$390**
+**Per-unit total: ~$40**
+**10-unit hardware total: ~$400**
 
-> **Pre-soldered is required.** The Round Display plugs directly onto the XIAO's header pins — without them soldered the boards won't connect.
+> **No soldering required for this phase.** The XIAO's pre-soldered header pins plug directly into the Round Display's female socket — assembly is snap-together. The only soldering in the entire project is Phase 4 (speaker + amp wiring), which comes later.
 
 ---
 
@@ -29,10 +29,11 @@ Prices approximate as of May 2026. Speaker and amp are not included in this phas
 
 | Component | Option 1 — Seeed Studio (direct) | Option 2 — Amazon (faster shipping) |
 |---|---|---|
-| XIAO ESP32-S3 Sense (pre-soldered) | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) | [amazon.com](https://www.amazon.com/Seeed-Studio-ESP32S3-Sense-Pre-Soldered/dp/B0DRNW6KMG) |
+| **XIAO ESP32-S3 Sense (Pre-Soldered)** | [seeedstudio.com — Pre-Soldered](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) | [amazon.com — Pre-Soldered](https://www.amazon.com/Seeed-Studio-ESP32S3-Sense-Pre-Soldered/dp/B0DRNW6KMG) |
 | Round Display for XIAO | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) | [amazon.com](https://www.amazon.com/Seeed-Studio-Round-Display-XIAO/dp/B0CB5HHY77) |
-| Both together (bundle) | — | [amazon.com bundle](https://www.amazon.com/Seeed-Studio-Round-Display-ESP32/dp/B0FG821GH9) |
 | USB-C cable + adapter | — | Amazon (any brand) |
+
+> **Do not buy the bundle** — the Amazon bundle listing does not specify pre-soldered and may ship the standard version. Buy the two items separately using the links above to guarantee you get the pre-soldered XIAO.
 
 **Seeed tip:** The CN warehouse ships internationally and is cheapest. If you need faster, Seeed has a US warehouse — select it at checkout.
 
@@ -44,7 +45,7 @@ Amazon.de and Amazon.com are unreliable for electronics shipping to Serbia — i
 
 | Component | AliExpress | Seeed Studio Direct |
 |---|---|---|
-| XIAO ESP32-S3 Sense | [aliexpress.com](https://www.aliexpress.com/i/1005005599130052.html) | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) ¹ |
+| **XIAO ESP32-S3 Sense (Pre-Soldered)** | [aliexpress.com](https://www.aliexpress.com/i/1005005599130052.html) — search "XIAO ESP32S3 Sense pre-soldered" to confirm variant | [seeedstudio.com — Pre-Soldered](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) ¹ |
 | Round Display for XIAO | [aliexpress.com](https://www.aliexpress.com/item/1005003022741453.html) | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) ¹ |
 | USB-C cable + adapter | AliExpress (any listing) | — |
 
@@ -94,8 +95,8 @@ Each recipient needs one API key:
 |---|---|
 | PlatformIO (VS Code extension) | Free — firmware build and flash |
 | USB-C data cable | For flashing — confirm it's data-capable, not charge-only |
-| Soldering iron | Minimal — only needed for Phase 4 speaker wiring |
-| Digital multimeter | Useful for Phase 4 continuity checks |
+
+**Note on soldering:** None required for the current build. When Phase 4 (speaker + amp) is ready, you'll need a soldering iron for 5 wires between the MAX98357A breakout and the speaker/XIAO. That's covered in the Phase 4 guide.
 
 ---
 
