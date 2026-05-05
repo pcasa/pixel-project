@@ -29,14 +29,23 @@ Prices approximate as of May 2026.
 
 ### USA
 
-| Part | Seeed Studio (direct, cheapest) | Amazon (faster) |
-|---|---|---|
-| XIAO ESP32-S3 Sense Pre-Soldered | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) | [amazon.com](https://www.amazon.com/Seeed-Studio-ESP32S3-Sense-Pre-Soldered/dp/B0DRNW6KMG) |
-| Round Display for XIAO | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) | [amazon.com](https://www.amazon.com/Seeed-Studio-Round-Display-XIAO/dp/B0CB5HHY77) |
-| LiPo battery (if using) | — | Amazon — search "3.7V LiPo JST 1.25 2 pin" |
-| USB-C to USB-C cable | — | Amazon (any brand) |
+**Order from Seeed Studio** (boards):
 
-> **Seeed tip:** Select the US warehouse at checkout for faster shipping. CN warehouse is cheaper but 1–2 weeks.
+| Part | Link |
+|---|---|
+| XIAO ESP32-S3 Sense Pre-Soldered | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) |
+| Round Display for XIAO | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) |
+
+> Seeed does not carry JST 1.25mm batteries or USB-C to USB-C cables — these must come from Amazon.
+
+**Order from Amazon** (battery + cable):
+
+| Part | Link | Notes |
+|---|---|---|
+| LiPo battery 3.7V 500mAh JST 1.25mm | [amazon.com](https://www.amazon.com/Connector-Temperature-Resistant-Rechargeable-Electronic/dp/B0FZT9PKHY) | Confirms JST 1.25mm — must match Round Display connector |
+| USB-C to USB-C cable, 1m | Amazon (any brand) | Any standard cable works |
+
+> **Seeed tip:** Select the US warehouse at checkout for faster shipping. CN warehouse is cheaper but takes 1–2 weeks.
 
 ### Serbia
 
