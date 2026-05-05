@@ -1,109 +1,107 @@
 # Project Pixel — Parts List
 
-10 units. All prices USD, approximate as of mid-2025. Links are starting points — shop around.
+Based on the original OmniBot Pixel build by Naz Louis.
+Prices approximate as of May 2026. Speaker and amp are not included in this phase — audio plays through the Mac's speakers via the browser dashboard.
 
 ---
 
 ## Per-Unit Bill of Materials
 
-| # | Component | Part Name | Qty | Unit Price | 10-unit Total | Where to Buy |
-|---|---|---|---|---|---|---|
-| 1 | MCU + camera + mic | Seeed Studio XIAO ESP32-S3 Sense | 1 | $15 | $150 | seeedstudio.com, Amazon |
-| 2 | Display | Seeed Studio Round Display for XIAO (1.28" GC9A01 + touch + RTC) | 1 | $10 | $100 | seeedstudio.com, Amazon |
-| 3 | Audio DAC | Adafruit MAX98357A I2S Class D Mono Amp Breakout | 1 | $5 | $50 | adafruit.com, Amazon |
-| 4 | Speaker | Waveshare 8Ω 2W Cavity Speaker (B) — 20×30mm, 2-pin PH1.25 | 1 | $3 | $30 | waveshare.com |
-| 4a | Speaker connector | JST PH1.25 2-pin male+female pigtail set (20 pairs) | 1 pack | $1 | $8 | Amazon |
-| 5 | Power | USB-C to USB-A cable, 1m | 1 | $4 | $40 | Amazon |
-| 6 | Power | 5V 1A USB-A wall adapter | 1 | $5 | $50 | Amazon |
-| 7 | Enclosure | 3D printed — PLA/PETG filament (~30g/unit) | 1 | $2 | $20 | (filament you own) |
-| 8 | Misc | M2×6 screws (4/unit), rubber feet, short wires | 1 | $1 | $10 | Amazon, hardware store |
+| # | Component | Part | Qty | ~Price |
+|---|---|---|---|---|
+| 1 | MCU + camera + mic | Seeed Studio XIAO ESP32-S3 Sense **(pre-soldered headers)** | 1 | $15 |
+| 2 | Display | Seeed Studio Round Display for XIAO (1.28" GC9A01, touch, RTC) | 1 | $12 |
+| 3 | Power | USB-C to USB-A cable, 1m | 1 | $4 |
+| 4 | Power | 5V 1A USB-A wall adapter | 1 | $5 |
+| 5 | Enclosure | 3D printed — PETG filament (~30g/unit) | 1 | ~$2 |
+| 6 | Misc | M2×6 screws (4/unit), rubber feet | 1 | ~$1 |
 
-**Per-unit total: ~$46**
-**10-unit hardware total: ~$458**
+**Per-unit total: ~$39**
+**10-unit hardware total: ~$390**
 
----
-
-## Shopping Links (Seeed Studio Bundle)
-
-Buy the XIAO ESP32-S3 Sense and Round Display together from Seeed for best price:
-- **XIAO ESP32-S3 Sense**: https://www.seeedstudio.com/XIAO-ESP32S3-Sense-p-5639.html
-- **Round Display for XIAO**: https://www.seeedstudio.com/Seeed-Studio-Round-Display-for-XIAO-p-5638.html
-
-Seeed often has bundle discounts — check "Combos" section. Also available on Amazon (Prime shipping).
+> **Pre-soldered is required.** The Round Display plugs directly onto the XIAO's header pins — without them soldered the boards won't connect.
 
 ---
 
-## Audio Circuit (MAX98357A → Speaker)
+## Where to Buy
 
-```
-XIAO ESP32-S3                MAX98357A Breakout
-─────────────────            ─────────────────
-D8  (GPIO4 / BCLK)  ──────►  BCLK
-D9  (GPIO6 / LRCK)  ──────►  LRC
-D10 (GPIO7 / DIN)   ──────►  DIN
-3.3V                ──────►  VIN
-GND                 ──────►  GND
+### USA Team Members
 
-                    MAX98357A ──► Speaker (+) / (-)
-```
-
-**Note**: The XIAO ESP32-S3 Sense already has a PDM microphone built in (no external mic needed).
-The MAX98357A adds the speaker output capability — the base OmniBot Pixel firmware only has mic input.
-Speaker output (I2S TX) will require a firmware addition in Phase 4.
-
-**Phase 1 note**: For Phase 1 testing, audio output plays through the Mac's speakers (browser dashboard).
-The MAX98357A hardware integration is Phase 4.
-
----
-
-## Enclosure Materials
-
-| Item | Qty | Notes |
+| Component | Option 1 — Seeed Studio (direct) | Option 2 — Amazon (faster shipping) |
 |---|---|---|
-| PETG filament (any color) | 300g | ~30g per unit, some waste |
-| Clear PETG or resin | 100g | Optional: clear diffuser layer over display |
-| M2×6mm screws | 40 | 4 per unit |
-| M2 brass heat inserts (optional) | 40 | 4 per unit — cleaner than threading plastic |
-| Self-adhesive rubber feet | 40 | 4 per unit |
+| XIAO ESP32-S3 Sense (pre-soldered) | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) | [amazon.com](https://www.amazon.com/Seeed-Studio-ESP32S3-Sense-Pre-Soldered/dp/B0DRNW6KMG) |
+| Round Display for XIAO | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) | [amazon.com](https://www.amazon.com/Seeed-Studio-Round-Display-XIAO/dp/B0CB5HHY77) |
+| Both together (bundle) | — | [amazon.com bundle](https://www.amazon.com/Seeed-Studio-Round-Display-ESP32/dp/B0FG821GH9) |
+| USB-C cable + adapter | — | Amazon (any brand) |
+
+**Seeed tip:** The CN warehouse ships internationally and is cheapest. If you need faster, Seeed has a US warehouse — select it at checkout.
 
 ---
 
-## Development Tools (One-Time)
+### Serbia (Jelena / international team member)
+
+Amazon.de and Amazon.com are unreliable for electronics shipping to Serbia — items frequently show "cannot ship to your location." **AliExpress is the best option** — ships worldwide, reliable, often free or low-cost shipping from China.
+
+| Component | AliExpress | Seeed Studio Direct |
+|---|---|---|
+| XIAO ESP32-S3 Sense | [aliexpress.com](https://www.aliexpress.com/i/1005005599130052.html) | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) ¹ |
+| Round Display for XIAO | [aliexpress.com](https://www.aliexpress.com/item/1005003022741453.html) | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) ¹ |
+| USB-C cable + adapter | AliExpress (any listing) | — |
+
+¹ Seeed Studio ships from CN warehouse to most countries including Serbia. Expect 15–25 days. Verify Serbia is available at checkout before ordering.
+
+**AliExpress tips for Serbia:**
+- Filter by "Seeed Studio Official Store" for genuine parts
+- Check seller rating (look for 95%+ positive feedback)
+- AliExpress Buyer Protection covers non-delivery
+- Expect 2–4 week delivery from CN
+
+---
+
+## Enclosure
+
+STL and STEP files are already purchased from the official Pixel Patreon build ($15).
+The original CAD is also free on OnShape if modifications are needed:
+[onshape.com — Pixel CAD](https://cad.onshape.com/documents/36ef3639f0adcbd215c2da2e/w/06b991eb4c1f6f28b2fd677f/e/884c5e41b396d185bfcf0efe)
+
+**Print settings (Bambu X1):**
+- Material: PETG (better heat tolerance near USB-C than PLA)
+- Layer height: 0.2mm
+- Infill: 15% gyroid
+
+**Modifications needed vs original design:**
+- Remove LiPo battery bay (we use USB-C power)
+- Add USB-C cable exit (rear or bottom)
+- (Phase 4 only) Add speaker grille + MAX98357A mount
+
+---
+
+## API Keys (Per Recipient)
+
+Each recipient needs one API key:
+
+| Service | Cost | Where to get it |
+|---|---|---|
+| **Anthropic (Claude)** | ~$5 credit (lasts months) | [console.anthropic.com](https://console.anthropic.com) |
+
+> Gemini key no longer needed — STT and TTS run locally on the Mac. See `docs/local-audio-recommendation.md`.
+
+---
+
+## Development Tools (One-Time, Team)
 
 | Item | Notes |
 |---|---|
-| USB-C to USB-A cable | For initial firmware flash (separate from unit cables) |
-| PlatformIO (VS Code extension) | Free — for firmware build and flash |
-| Soldering iron + solder | For MAX98357A breakout wiring |
-| Helping hands / PCB holder | Makes wiring much easier |
-| Digital multimeter | For continuity checks |
+| PlatformIO (VS Code extension) | Free — firmware build and flash |
+| USB-C data cable | For flashing — confirm it's data-capable, not charge-only |
+| Soldering iron | Minimal — only needed for Phase 4 speaker wiring |
+| Digital multimeter | Useful for Phase 4 continuity checks |
 
 ---
 
-## API Keys (Per Recipient, Zero Hardware Cost)
+## Buying Order
 
-Each recipient needs two free/low-cost API keys:
-
-| Service | Key Type | Cost | Where |
-|---|---|---|---|
-| Anthropic (Claude) | Personal API key | ~$5 credit (months of use) | console.anthropic.com |
-| Google Gemini | Personal API key | Free tier (15 RPM) | aistudio.google.com |
-
----
-
-## Recommended Buying Order
-
-1. **Week 1**: Order Seeed XIAO ESP32-S3 Sense × 10 + Round Display × 10 (may take 1–2 weeks to ship)
-2. **Week 1**: Order MAX98357A breakouts × 10 + speakers × 10 (Amazon, fast shipping)
-3. **Week 1**: Order USB-C cables × 10 + wall adapters × 10 (Amazon)
-4. **Week 2**: Start enclosure design and first print once hardware arrives for sizing
-5. **Week 3**: Order screws, rubber feet, heat inserts after finalizing enclosure design
-
----
-
-## Where to Buy (Aggregated)
-
-**Seeed Studio (seeedstudio.com)**: XIAO ESP32-S3 Sense, Round Display
-**Adafruit (adafruit.com)**: MAX98357A breakout (most reliable supplier)
-**Amazon**: Speakers, USB-C cables, wall adapters, screws, rubber feet
-**DigiKey / Mouser**: If you need higher quantities or specific specs on passives
+1. **Now**: Order XIAO ESP32-S3 Sense × 10 + Round Display × 10 — Seeed ships from China, allow 1–2 weeks
+2. **Now**: Serbia team member orders via AliExpress at the same time — similar shipping window
+3. **When hardware arrives**: Begin Phase 2 (captive portal) and prototype the enclosure
+4. **Phase 4**: Order speaker + amp when ready for hardware assembly
