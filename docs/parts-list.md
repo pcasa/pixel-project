@@ -1,26 +1,25 @@
 # Project Pixel — Parts List
 
-Based on the original OmniBot Pixel build by Naz Louis.
-Prices approximate as of May 2026.
+Sourced directly from the official Pixel Tutorial BOM by Naz Louis.
+Prices as listed in the original tutorial (May 2026).
 
 ---
 
 ## Per-Unit Bill of Materials
 
-| # | Part | Qty | ~Price | Notes |
-|---|---|---|---|---|
-| 1 | Seeed Studio XIAO ESP32-S3 Sense — **Pre-Soldered** | 10 | $160 | Must be pre-soldered — pins plug directly into the display |
-| 2 | Seeed Studio Round Display for XIAO (1.28") | 10 | $120 | GC9A01 display, touch controller, RTC |
-| 3 | LiPo battery, 3.7V, 500mAh, JST 1.25mm 2-pin | 10 | ~$50 | From original author's BOM — plugs into Round Display JST socket |
-| 4 | CR927 coin cell battery | 10 | ~$5 | RTC backup — keeps the clock when unplugged. Any pharmacy or Amazon. |
-| 5 | USB-C to USB-C cable, 1m | 10 | $30 | Power — plugs into Mac USB-C port or any USB-C charger |
+| # | Part | Qty | Unit Price | 10-unit Total | Notes |
+|---|---|---|---|---|---|
+| 1 | Seeed Studio XIAO ESP32-S3 Sense — **Pre-Soldered** | 10 | $14.99 | $149.90 | Must be pre-soldered — pins plug directly into display |
+| 2 | Seeed Studio Round Display for XIAO (1.28") | 10 | $18.00 | $180.00 | GC9A01, touch, RTC, JST battery connector |
+| 3 | LiPo battery — DCH 523450, 3.7V **1000mAh**, JST | 10 | $11.99 | $119.90 | Exact model from original BOM |
+| 4 | OV2640 Camera Module, 160° wide-angle, 2MP | 10 | $19.99 | $199.90 | External camera for robot body positioning — separate from XIAO's built-in camera |
+| 5 | CR927 RTC battery (10-pack) | 1 pack | $5.99 | $5.99 | Keeps RTC running when unplugged — 1 pack covers all 10 units |
+| 6 | USB-C to USB-C cable, 1m | 10 | ~$3 | ~$30 | Power — not in original BOM, added for our always-on USB-C design |
 
-**Per-unit total: ~$37**
-**10-unit total: ~$365**
+**Per-unit total: ~$68**
+**10-unit total: ~$685**
 
-> **Power:** Pixel plugs into any USB-C port — the Mac, a phone charger, a USB-C hub. Recipients almost certainly have something already.
-
-> **No soldering required.** The XIAO's pre-soldered pins plug directly into the Round Display's socket — snap together, done. The CR927 coin cell drops into the RTC holder on the Round Display — no tools needed.
+> **No soldering required.** The XIAO's pre-soldered pins plug directly into the Round Display — snap together. Battery plugs into the JST socket on the Round Display. OV2640 connects via ribbon cable.
 
 > **Spares recommended:** Order 2 extra XIAOs and 1 extra display — development will inevitably damage one.
 
@@ -32,31 +31,35 @@ Prices approximate as of May 2026.
 
 **Order from Seeed Studio** (boards):
 
-| Part | Link |
-|---|---|
-| XIAO ESP32-S3 Sense Pre-Soldered | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) |
-| Round Display for XIAO | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) |
-
-**Order from Amazon** (battery + cable):
-
-| Part | Link | Notes |
+| Part | Seeed Studio | Amazon |
 |---|---|---|
-| LiPo 3.7V 500mAh JST 1.25mm | [amazon.com](https://www.amazon.com/Connector-Temperature-Resistant-Rechargeable-Electronic/dp/B0FZT9PKHY) | Must be JST 1.25mm — confirm before ordering |
-| CR927 coin cell | Any pharmacy, grocery store, or Amazon | ~$1 each — standard watch battery |
-| USB-C to USB-C cable, 1m | Amazon (any brand) | Any standard cable works |
+| XIAO ESP32-S3 Sense Pre-Soldered | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) | [amazon.com](https://amzn.to/4tPeg00) |
+| Round Display for XIAO | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) | [amazon.com](https://amzn.to/4tH215P) |
 
-> **Seeed tip:** Select the US warehouse at checkout for faster shipping. CN warehouse is cheaper but takes 1–2 weeks.
+**Order from Amazon** (battery, camera, RTC):
+
+| Part | Amazon Link |
+|---|---|
+| LiPo 3.7V 1000mAh (DCH 523450, JST) | [amazon.com](https://amzn.to/3QwjBLn) |
+| OV2640 Camera Module 160° wide-angle | [amazon.com](https://amzn.to/4w812xl) |
+| CR927 RTC Battery 10-pack | [amazon.com](https://amzn.to/48vFAYO) |
+| USB-C to USB-C cable | Amazon (any brand) |
+
+> **Seeed tip:** Select the US warehouse at checkout for faster shipping.
+
+---
 
 ### Serbia
 
-AliExpress is the most reliable option — ships worldwide, free or low-cost from China.
+AliExpress is the most reliable option — ships worldwide with buyer protection.
 
 | Part | AliExpress | Seeed Studio Direct |
 |---|---|---|
 | XIAO ESP32-S3 Sense Pre-Soldered | [aliexpress.com](https://www.aliexpress.com/i/1005005599130052.html) — confirm "pre-soldered" variant | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) |
 | Round Display for XIAO | [aliexpress.com](https://www.aliexpress.com/item/1005003022741453.html) | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) |
-| LiPo 3.7V 500mAh JST 1.25mm | AliExpress — search "3.7V 500mAh JST 1.25 2 pin lipo" | Confirm JST 1.25mm variant |
-| CR927 coin cell | AliExpress (any listing) | Also available at local pharmacies |
+| LiPo 3.7V 1000mAh JST | AliExpress — search "DCH 523450 3.7V 1000mAh JST" | — |
+| OV2640 Camera 160° wide-angle | AliExpress — search "OV2640 160 degree wide angle camera module" | — |
+| CR927 RTC Battery | AliExpress (any listing) or local pharmacy | — |
 | USB-C to USB-C cable | AliExpress (any listing) | — |
 
 > **AliExpress tips:** Filter by "Seeed Studio Official Store" for genuine boards. Expect 2–4 week delivery.
@@ -65,17 +68,16 @@ AliExpress is the most reliable option — ships worldwide, free or low-cost fro
 
 ## Enclosure
 
-STL and STEP files already purchased from the official Pixel Patreon ($15).
+STL and STEP files purchased from the official Pixel Patreon build ($15).
 Free OnShape CAD for modifications: [onshape.com — Pixel CAD](https://cad.onshape.com/documents/36ef3639f0adcbd215c2da2e/w/06b991eb4c1f6f28b2fd677f/e/884c5e41b396d185bfcf0efe)
 
-**Team members print their own** on their 3D printers.
-**Serbia:** STL files will be shared from the repo — she can send to a local print shop or friend with a printer.
+**Team members print their own.** Serbia: STL files are in the repo — send to a local print shop or friend with a printer.
 
 **Modifications needed vs original:**
-- Add USB-C cable exit at rear or bottom (original used battery-only power)
+- Add USB-C cable exit at rear or bottom (original was battery-only powered)
 
 **Print settings:**
-- Material: PETG (better heat tolerance near USB-C than PLA)
+- Material: PETG
 - Layer height: 0.2mm, infill 15% gyroid
 
 ---
@@ -85,7 +87,7 @@ Free OnShape CAD for modifications: [onshape.com — Pixel CAD](https://cad.onsh
 | Item | Notes |
 |---|---|
 | PlatformIO (VS Code extension) | Free — firmware build and flash |
-| USB-C **data** cable | For flashing — many cables are charge-only, confirm yours supports data |
+| USB-C **data** cable | For flashing — must support data, not charge-only |
 
 ---
 
@@ -96,4 +98,3 @@ Free OnShape CAD for modifications: [onshape.com — Pixel CAD](https://cad.onsh
 | **Anthropic (Claude)** | ~$5 credit, lasts months | [console.anthropic.com](https://console.anthropic.com) |
 
 No Gemini key needed — STT and TTS run locally on the Mac.
-
