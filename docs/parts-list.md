@@ -12,7 +12,7 @@ Prices as listed in the original tutorial (May 2026).
 | 1 | Seeed Studio XIAO ESP32-S3 Sense — **Pre-Soldered** | 10 | $14.99 | $149.90 | Must be pre-soldered — pins plug directly into display |
 | 2 | Seeed Studio Round Display for XIAO (1.28") | 10 | $18.00 | $180.00 | GC9A01, touch, RTC, JST battery connector |
 | 3 | LiPo battery — DCH 523450, 3.7V **1000mAh**, JST | 10 | $11.99 | $119.90 | Exact model from original BOM |
-| 4 | OV2640 Camera Module, 160° wide-angle, 2MP (Aideepen) | 10 | $19.99 | $199.90 | Replaces the XIAO's built-in camera. The built-in one is removed from the Sense module — this one has a longer ribbon cable to route through the enclosure and a wider 160° lens |
+| 4 | OV2640 Camera Module, 160° wide-angle, 2MP (Aideepen) — **buy 4-pack × 3** | 12 | $27.54/pack | $82.62 | Replaces the XIAO's built-in camera. Buy 3× 4-packs = 12 cameras (10 units + 2 spares). Cheaper than 5× 2-packs ($99.95). |
 | 5 | CR927 RTC battery (10-pack) | 1 pack | $5.99 | $5.99 | Keeps RTC running when unplugged — 1 pack covers all 10 units |
 | 6 | USB-C to USB-C cable, 1m | 10 | ~$3 | ~$30 | Power — not in original BOM, added for our always-on USB-C design |
 
@@ -41,7 +41,7 @@ Prices as listed in the original tutorial (May 2026).
 | Part | Amazon Link |
 |---|---|
 | LiPo 3.7V 1000mAh (DCH 523450, JST) | [amazon.com](https://amzn.to/3QwjBLn) |
-| OV2640 Camera Module 160° wide-angle | [amazon.com](https://amzn.to/4w812xl) |
+| OV2640 Camera Module 160° — **4-pack** × 3 | [amazon.com — 4-pack](https://www.amazon.com/Camera-Aideepen-Wide-Angle-Megapixel-Support/dp/B0DNZ3ZD36) |
 | CR927 RTC Battery 10-pack | [amazon.com](https://amzn.to/48vFAYO) |
 | USB-C to USB-C cable | Amazon (any brand) |
 
