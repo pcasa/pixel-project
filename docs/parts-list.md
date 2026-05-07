@@ -9,7 +9,7 @@ Prices as listed in the original tutorial (May 2026).
 
 | # | Part | Qty | Unit Price | 10-unit Total | Notes |
 |---|---|---|---|---|---|
-| 1 | Seeed Studio XIAO ESP32-S3 Sense — **Pre-Soldered** | 10 | $14.99 | $149.90 | Must be pre-soldered — pins plug directly into display |
+| 1 | Seeed Studio XIAO ESP32-S3 Sense — **Pre-Soldered** | 10 | $14.99 | $149.90 | Must be pre-soldered — pins plug directly into display. **Buy Sense, not standard** — the Sense module includes a built-in PDM microphone (used for wake word + speech input). Non-Sense boards have no mic. The built-in camera is replaced by the external OV2640, but the mic is kept. |
 | 2 | Seeed Studio Round Display for XIAO (1.28") | 10 | $18.00 | $180.00 | GC9A01, touch, RTC, JST battery connector |
 | 3 | LiPo battery — DCH 523450, 3.7V **1000mAh**, JST | 10 | $11.99 | $119.90 | Exact model from original BOM |
 | 4 | OV2640 Camera Module, 160° wide-angle, 2MP (Aideepen) — 2-pack | 10 | $19.99/2-pack | $99.95 | Replaces the XIAO's built-in camera. Sold in 2-packs — buy 1 pack per 2 units. |
@@ -58,7 +58,7 @@ AliExpress is the most reliable option — ships worldwide with buyer protection
 | XIAO ESP32-S3 Sense Pre-Soldered | [aliexpress.com](https://www.aliexpress.com/i/1005005599130052.html) — confirm "pre-soldered" variant | [seeedstudio.com](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32S3-Sense-Pre-Soldered-p-6335.html) |
 | Round Display for XIAO | [aliexpress.com](https://www.aliexpress.com/item/1005003022741453.html) | [seeedstudio.com](https://www.seeedstudio.com/1-28-Round-Touch-Display-for-Seeed-Studio-XIAO-ESP32.html) |
 | LiPo 3.7V 1000mAh JST | AliExpress — search "DCH 523450 3.7V 1000mAh JST" | — |
-| OV2640 Camera 160° — 2-pack | AliExpress — search "Aideepen OV2640 160 degree wide angle 2MP" | — |
+| OV2640 Camera 160° — 2-pack | [aliexpress.com — Taidacent OV2640 160° 24-pin](https://www.aliexpress.com/item/4001333887594.html) — Aideepen not on AliExpress; Taidacent is identical spec (160°, 2MP, 24-pin DVP). Buy 1 per 2 units. | — |
 | CR927 RTC Battery | AliExpress (any listing) or local pharmacy | — |
 | USB-C to USB-C cable | AliExpress (any listing) | — |
 
