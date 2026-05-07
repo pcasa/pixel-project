@@ -12,7 +12,7 @@ Prices as listed in the original tutorial (May 2026).
 | 1 | Seeed Studio XIAO ESP32-S3 Sense — **Pre-Soldered** | 10 | $14.99 | $149.90 | Must be pre-soldered — pins plug directly into display |
 | 2 | Seeed Studio Round Display for XIAO (1.28") | 10 | $18.00 | $180.00 | GC9A01, touch, RTC, JST battery connector |
 | 3 | LiPo battery — DCH 523450, 3.7V **1000mAh**, JST | 10 | $11.99 | $119.90 | Exact model from original BOM |
-| 4 | OV2640 Camera Module, 160° wide-angle, 2MP | 10 | $19.99 | $199.90 | External camera for robot body positioning — separate from XIAO's built-in camera |
+| 4 | OV2640 Camera Module, 160° wide-angle, 2MP (Aideepen) | 10 | $19.99 | $199.90 | Replaces the XIAO's built-in camera. The built-in one is removed from the Sense module — this one has a longer ribbon cable to route through the enclosure and a wider 160° lens |
 | 5 | CR927 RTC battery (10-pack) | 1 pack | $5.99 | $5.99 | Keeps RTC running when unplugged — 1 pack covers all 10 units |
 | 6 | USB-C to USB-C cable, 1m | 10 | ~$3 | ~$30 | Power — not in original BOM, added for our always-on USB-C design |
 
